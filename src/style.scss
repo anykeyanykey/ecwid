@@ -1,0 +1,95 @@
+$bg-color: #272727;
+$text-color: #495057;
+$primary-color: #0069d9;
+$invalid-color: #dc3545;
+$box-shadow-color: lighten($primary-color, 5%);
+$input-border-color: #ced4da;
+$input-bg-color: #fff;
+
+html {
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+body {
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+.input-control {
+    display: block;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: $input-bg-color;
+    background-clip: padding-box;
+    border: 1px solid $input-border-color;
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 1px 1px $box-shadow-color;
+    }
+
+    &--invalid {
+        border-color: $invalid-color !important;
+        &:focus {
+            box-shadow: 0 0 1px 1px $invalid-color;
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+
+    &--primary {
+        color: #fff;
+        background-color: $primary-color;
+        border-color: darken($primary-color, 5%);
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 1px 1px $box-shadow-color;
+    }
+}
+
+.flexed-row {
+    display: flex;
+    flex-direction: row;
+    &__item {
+        &:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+        &--max-size {
+            flex: 1;
+        }
+    }
+}
