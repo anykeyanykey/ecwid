@@ -1,11 +1,9 @@
 <template>
-    <div
-        class="expander"
-        @click.stop="close"
-        :class="{ 'expander--expanded': value }"
-    >
+    <div class="expander" @click.stop="close" :class="{ 'expander--expanded': value }">
         <div v-if="value" class="expander__inner">
-            <div class="expander__image_holder"><img :src="value.url" /></div>
+            <div class="expander__image_holder">
+                <img alt="" :src="value.url" />
+            </div>
         </div>
     </div>
 </template>
@@ -22,13 +20,11 @@ export default {
     data() {
         return {};
     },
-    computed: {},
     methods: {
-        close() {
-            this.$emit("input", null);
+        close(): void {
+            this.$emit('input', null);
         }
-    },
-    created(): void {}
+    }
 };
 </script>
 

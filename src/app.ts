@@ -1,8 +1,6 @@
-import Vue from "vue";
-import AppComponent from "./components/app-component.vue";
+import Vue from 'vue';
+import AppComponent from './components/app-component.vue';
 
-const app: Vue = new Vue({
-    render: h => h(AppComponent)
-});
+const app: Vue = new Vue({ render: (h) => h(AppComponent) });
 
-app.$mount("#app");
+app.$mount('#app');

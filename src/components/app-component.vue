@@ -1,18 +1,15 @@
 <template>
     <div class="container">
-        <loader-component v-on:load="onLoad" />
-        <gallery-component
-            v-bind:images="images"
-            @expand="expandedImage = $event;"
-        />
+        <loader-component @load="onLoad" />
+        <gallery-component :images="images" @expand="expandedImage = $event" @remove="onRemove" />
         <expand-component v-model="expandedImage" />
     </div>
 </template>
 
 <script lang="ts">
-import GalleryComponent from "./gallery-component.vue";
-import LoaderComponent from "./loader-component.vue";
-import ExpandComponent from "./expand-component.vue";
+import GalleryComponent from './gallery-component.vue';
+import LoaderComponent from './loader-component.vue';
+import ExpandComponent from './expand-component.vue';
 
 export default {
     components: {
@@ -27,12 +24,15 @@ export default {
         };
     },
     methods: {
-        onLoad(event) {
-            if (event) {
-                if (Array.isArray(event)) {
-                    this.images = event;
+        onRemove(image: IImageItem): void {
+            this.images.splice(this.images.indexOf(image), 1);
+        },
+        onLoad(images: IImageItem[]): void {
+            if (images) {
+                if (Array.isArray(images)) {
+                    this.images = images;
                 } else {
-                    this.images.unshift(event);
+                    this.images.unshift(images);
                 }
             }
         }

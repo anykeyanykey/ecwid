@@ -6,16 +6,17 @@
         "noImplicitAny": false,
         "moduleResolution": "node",
         "sourceMap": false,
-        "outDir": "./../dist",
-        "baseUrl": ".",
+        "outDir": "./dist",
+        "baseUrl": "./src",
         "experimentalDecorators": true,
         "skipDefaultLibCheck": true,
         "paths": {}
     },
-    "include": ["./**/*"],
+    "include": ["./src/**/*"],
     "exclude": [],
     "files": [
-        "./vue.shim.d.ts",
-        "./index.ts"
+        "./src/vue.shim.d.ts",
+        "./src/typings.d.ts",
+        "./src/index.ts"
     ]
 }

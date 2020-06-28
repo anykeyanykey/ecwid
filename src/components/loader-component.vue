@@ -10,7 +10,7 @@
                     type="text"
                     placeholder="https://don16obqbay2c.cloudfront.net/frontend-test-task/images/493550746.jpg"
                     spellcheck="false"
-                    @input="urlInvalid = false;"
+                    @input="urlInvalid = false"
                     v-model="urlValue"
                 />
             </div>
@@ -55,18 +55,19 @@ export default {
         }
     },
     methods: {
-        loadImage() {
+        loadImage(): void {
             this.loading = true;
             const img = new Image();
             let url;
             img.src = url = this.urlValue;
 
             img.onload = (ev: any) => {
-                this.$emit("load", {
+                this.$emit('load', {
+                    id: Math.random(),
                     url,
                     width: ev.target.width,
                     height: ev.target.height
-                });
+                } as IImageItem);
                 this.loading = false;
             };
             img.onerror = () => {
@@ -74,11 +75,11 @@ export default {
                 this.loading = false;
             };
         },
-        uploadFile(event) {
+        uploadFile(event: any): void {
             if (event.target.files.length) {
                 const fileReader = new FileReader();
                 fileReader.onload = (evt: any) => {
-                    this.$emit("load", JSON.parse(evt.target.result).images);
+                    this.$emit('load', JSON.parse(evt.target.result).galleryImages as IImageItem[]);
                 };
                 fileReader.readAsText(event.target.files[0]);
             }
