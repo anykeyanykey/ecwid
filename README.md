@@ -37,4 +37,5 @@ https://docs.google.com/document/d/1jVU6m5qKcgXpSd0jCawymUqeqc2D3x-hD22bKzhLOzc/
 
 Добавил открытие на просмотр и удаление из галереи
 
+Если решение неверное, очень хотелось бы узнать лучший вариант в двух словах: zanax@yandex.ru
 
